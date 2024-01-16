@@ -1,0 +1,743 @@
+{
+	"info": {
+		"_postman_id": "20a32713-60f3-44ab-8571-bc0cfb1b3c7a",
+		"name": "Dadata Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10568977",
+		"_collection_link": "https://www.postman.com/warped-trinity-8764/workspace/forpublicinna/collection/10568977-20a32713-60f3-44ab-8571-bc0cfb1b3c7a?action=share&source=collection_link&creator=10568977"
+	},
+	"item": [
+		{
+			"name": "HW D1* count",
+			"item": [
+				{
+					"name": "HW D1* count >20",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify there will be 20 suggestion if count > 20\", function () {",
+									"     pm.expect(pm.response.json().suggestions.length).to.be.at.most(20);",
+									"});",
+									"",
+									"pm.test(\"Broken Verify there will be 20 suggestion if count > 20\", function () {",
+									"     pm.expect(pm.response.json().suggestions.length).to.not.be.at.most(22);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"query\": \"а\",\n\"count\":21\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+							"protocol": "http",
+							"host": [
+								"suggestions",
+								"dadata",
+								"ru"
+							],
+							"path": [
+								"suggestions",
+								"api",
+								"4_1",
+								"rs",
+								"suggest",
+								"fio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HW D1*  1 < count < 20",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify there will be not more than 12 suggestion if count = 12\", function () {",
+									"     pm.expect(pm.response.json().suggestions.length).to.be.at.most(12);",
+									"});",
+									"",
+									"pm.test(\"Broken Verify there will be 20 suggestion if count > 20\", function () {",
+									"     pm.expect(pm.response.json().suggestions.length).to.be.at.most(1);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"query\": \"а\",\n\"count\": 12\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+							"protocol": "http",
+							"host": [
+								"suggestions",
+								"dadata",
+								"ru"
+							],
+							"path": [
+								"suggestions",
+								"api",
+								"4_1",
+								"rs",
+								"suggest",
+								"fio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HW D1*  count is empty",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify there will be not more than 12 suggestion if count = 12\", function () {",
+									"     pm.expect(pm.response.json().suggestions.length).to.be.at.most(12);",
+									"});",
+									"",
+									"pm.test(\"Broken Verify there will be 20 suggestion if count > 20\", function () {",
+									"     pm.expect(pm.response.json().suggestions.length).to.be.at.most(1);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"query\": \"а\",\n\"count\": 12\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+							"protocol": "http",
+							"host": [
+								"suggestions",
+								"dadata",
+								"ru"
+							],
+							"path": [
+								"suggestions",
+								"api",
+								"4_1",
+								"rs",
+								"suggest",
+								"fio"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Malahov",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Find Malahov\", function () {",
+							"    let aMalahov = pm.response.json().suggestions[2].data.surname;",
+							"    console.log(aMalahov)",
+							"    pm.expect(aMalahov).to.eql(\"Малахов\");",
+							"});",
+							"",
+							"pm.test(\"Find Malahov broken test\", function () {",
+							"    let fakeMalahov = pm.response.json().suggestions[3].data.surname;",
+							"    console.log(`not real Malahov with last name ${fakeMalahov}`)",
+							"    pm.expect(fakeMalahov).to.eql(\"Малахов\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"query\": \"Андрей Мал\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+					"protocol": "http",
+					"host": [
+						"suggestions",
+						"dadata",
+						"ru"
+					],
+					"path": [
+						"suggestions",
+						"api",
+						"4_1",
+						"rs",
+						"suggest",
+						"fio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HW 18 Malahov is in the response JSON",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json()",
+							"",
+							"pm.test(\"Verify Малахов is in the response\", function () {",
+							"    pm.expect(jsonData.suggestions[2].data.surname).to.eql(\"Малахов\");",
+							"});",
+							"",
+							"pm.test(\"Verify Малахов is in the response\", function () {",
+							"    pm.expect(jsonData.suggestions[2].data.surname).to.eql(\"Малах\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"query\": \"Андрей Мал\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+					"protocol": "http",
+					"host": [
+						"suggestions",
+						"dadata",
+						"ru"
+					],
+					"path": [
+						"suggestions",
+						"api",
+						"4_1",
+						"rs",
+						"suggest",
+						"fio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HW 22 Malahov is in the response XML",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = xml2Json(responseBody)",
+							"pm.test(\"Verify Малахов is in the response\", function () {",
+							"    pm.expect(jsonData.SuggestResponse.suggestions[2].data.surname).to.eql(\"Малахов\");",
+							"});",
+							"",
+							"pm.test(\"Broken Verify Малахов is in the response\", function () {",
+							"    pm.expect(jsonData.SuggestResponse.suggestions[2].data.surname).to.eql(\"Малах\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"query\": \"Андрей Мал\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+					"protocol": "http",
+					"host": [
+						"suggestions",
+						"dadata",
+						"ru"
+					],
+					"path": [
+						"suggestions",
+						"api",
+						"4_1",
+						"rs",
+						"suggest",
+						"fio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HW 31 for and forEach",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json().suggestions",
+							"",
+							"for (let i = 0; i <jsonData.length; i++){",
+							"pm.test(\"for Verify response consists of only male\", function () {",
+							"    pm.expect(jsonData[i].data.gender).to.eql(\"MALE\");",
+							"});",
+							"",
+							"pm.test(\"for Verify response has only names and not null\", function () {",
+							"    pm.expect(jsonData[i].value).to.eql(jsonData[i].data.name).that.is.not.null;",
+							"});",
+							"",
+							"pm.test(\"for Verify response has no surname\", function () {",
+							"    pm.expect(jsonData[i].data.surname).is.null;",
+							"});",
+							"",
+							"pm.test(\"for Verify response has no patronymic name\", function () {",
+							"    pm.expect(jsonData[i].data.patronymic).is.null;",
+							"});",
+							"",
+							"// How to check if tests work (beginning)",
+							"pm.test(\"Broken with constant Verify response has only names\", function () {",
+							"    pm.expect(jsonData[i].value).to.eql(\"Александр77\");",
+							"});",
+							"pm.test(\"Broken for Verify response has only names and is not null\", function () {",
+							"    pm.expect(jsonData[i].value).to.eql(jsonData[i].data.name).that.is.null;",
+							"});",
+							"",
+							"pm.test(\"Broken for Verify response has no surname\", function () {",
+							"    pm.expect(jsonData[i].data.surname).is.not.null;",
+							"});",
+							"",
+							"pm.test(\"Broken for Verify response has no patronymic name\", function () {",
+							"    pm.expect(jsonData[i].data.patronymic).is.not.null;",
+							"});",
+							"",
+							"pm.test(\"Broken Verify response consists of only male\", function () {",
+							"    pm.expect(jsonData[i].data.gender).to.eql(\"FEMALE\");",
+							"});",
+							"// end of broken tests",
+							"}",
+							"",
+							"jsonData.forEach(function(el, i){",
+							"    pm.test(\"forEach Verify response consists of only male\", function () {",
+							"    pm.expect(jsonData[i].data.gender).to.eql(\"MALE\");",
+							"});",
+							"",
+							"pm.test(\"forEach Verify response has only names that is not null\", function () {",
+							"    pm.expect(jsonData[i].value).to.eql(jsonData[i].data.name).that.is.not.null;",
+							"});",
+							"",
+							"pm.test(\"forEach Verify response has no surname\", function () {",
+							"    pm.expect(jsonData[i].data.surname).is.null;",
+							"});",
+							"",
+							"pm.test(\"forEach Verify response has no patronymic name\", function () {",
+							"    pm.expect(jsonData[i].data.patronymic).is.null;",
+							"});",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"query\": \"А\",\n\"gender\": \"MALE\",\n\"parts\": [\"NAME\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+					"protocol": "http",
+					"host": [
+						"suggestions",
+						"dadata",
+						"ru"
+					],
+					"path": [
+						"suggestions",
+						"api",
+						"4_1",
+						"rs",
+						"suggest",
+						"fio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HW 32 Anna is in the response",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json().suggestions",
+							"var indexAnna = 0;",
+							"",
+							"for (let i = 0; i <jsonData.length; i++){",
+							"    if (jsonData[i].value == \"Анна\"){",
+							"    indexAnna = i;    ",
+							"    }",
+							"}",
+							"",
+							"pm.test(\"Verify Anna is in the response\", function () {",
+							"            pm.expect(jsonData[indexAnna].value).to.eql(\"Анна\");",
+							"        });",
+							"",
+							"pm.test(\"Broken Verify Anna is in the response(Anna7)\", function () {",
+							"            pm.expect(jsonData[indexAnna].value).to.eql(\"Анна7\");",
+							"        });",
+							"",
+							"// Also we could put a number instead of indexAnna in the test.",
+							"// Or change \"Anna\" for something else in the string #5 ((jsonData[i].value == \"Антонина\") for example)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"query\": \"Ан\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+					"protocol": "http",
+					"host": [
+						"suggestions",
+						"dadata",
+						"ru"
+					],
+					"path": [
+						"suggestions",
+						"api",
+						"4_1",
+						"rs",
+						"suggest",
+						"fio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HW 37 Anna and arrays",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json().suggestions",
+							"let surname_arr = [];",
+							"let name_arr = []; let name_arr2 = []; let name_arr3 = [];",
+							"let patronymic_arr = [];",
+							"",
+							"jsonData.forEach( el => {",
+							"    if (el.data.surname != null){",
+							"       surname_arr.push(el.data.surname);  ",
+							"    }",
+							"",
+							"    if (el.data.name != null) {",
+							"        name_arr.unshift(el.data.name);",
+							"        name_arr2.splice(name_arr2.length, 0, el.data.name);",
+							"        name_arr3[name_arr3.length] = el.data.name;",
+							"    }",
+							"    ",
+							"    if (el.data.patronymic != null) {",
+							"        patronymic_arr[patronymic_arr.length] = el.data.patronymic",
+							"    }",
+							"    }",
+							")",
+							"      ",
+							"       console.log(\"surname_arr:\")",
+							"       console.log(surname_arr)",
+							"       console.log(\"name_arr:\")",
+							"       console.log(name_arr)",
+							"       console.log(name_arr2)",
+							"       console.log(name_arr3)",
+							"       console.log(\"patronymic_arr:\")",
+							"       console.log(patronymic_arr)",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"query\": \"Ан\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+					"protocol": "http",
+					"host": [
+						"suggestions",
+						"dadata",
+						"ru"
+					],
+					"path": [
+						"suggestions",
+						"api",
+						"4_1",
+						"rs",
+						"suggest",
+						"fio"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
